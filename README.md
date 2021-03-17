@@ -1,4 +1,4 @@
-# todotick
+# FreeApp
 
 > A Vue.js project
 
