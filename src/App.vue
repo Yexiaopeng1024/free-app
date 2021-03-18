@@ -3,7 +3,9 @@
   <div class="baseplate">
     <Navigation></Navigation>
     <div class="viewport">
-      <router-view ></router-view>
+      <div class="view-plate">
+        <router-view ></router-view>
+      </div>
     </div>
     <i class="nes-mario"></i>
   </div>
@@ -42,6 +44,9 @@ export default {
   background-color #6d1d1d
   box-shadow: 20px 20px 10px #888888
   .viewport
+   display flex
+   justify-content center
+   align-items center
    position relative
    z-index 200
    width 80%
@@ -50,6 +55,13 @@ export default {
    border-radius 25px
    background-color #fff
    box-shadow 0px 0px 20px #000 inset
+   .view-plate
+    display flex
+    width 98.5%
+    height 525px
+    overflow hidden
+    border-radius 20px
+    background-color #555555
   .nes-mario
    position relative
    top -266px
