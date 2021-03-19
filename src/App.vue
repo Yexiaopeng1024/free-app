@@ -61,7 +61,7 @@ export default {
     height 525px
     overflow hidden
     border-radius 20px
-    background-color #555555
+    background-color #777
   .nes-mario
    position relative
    top -266px
