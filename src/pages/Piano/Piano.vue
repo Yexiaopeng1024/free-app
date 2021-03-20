@@ -65,8 +65,7 @@ export default {
             const Waudio = Waudios[i]
             if (Waudio.getAttribute('code') === Code) {
               const WcloneAudioNode = Waudio.cloneNode()
-              const WisActive = this.WisActive // 响应式添加类名
-              Vue.set(WisActive, Code, true)
+              Vue.set(this.WisActive, Code, true)// 响应式添加类名
               WcloneAudioNode.play()
               WcloneAudioNode.remove()
             }
@@ -78,8 +77,7 @@ export default {
             let Baudio = Baudios[i]
             if (Baudio.getAttribute('code') === Code) {
               var BcloneAudioNode = Baudio.cloneNode()
-              let BisActive = this.BisActive // 响应式添加类名
-              Vue.set(BisActive, Code, true)
+              Vue.set(this.BisActive, Code, true)// 响应式添加类名
               BcloneAudioNode.play()
               BcloneAudioNode.remove()
               break
@@ -90,12 +88,10 @@ export default {
     clearCSS (Code, isB) {
       switch (isB) {
         case false:
-          let WisActive = this.WisActive // 响应式移除类名
-          Vue.delete(WisActive, Code)
+          Vue.delete(this.WisActive, Code) // 响应式移除类名
           break
         case true:
-          let BisActive = this.BisActive // 响应式移除类名
-          Vue.delete(BisActive, Code)
+          Vue.delete(this.BisActive, Code) // 响应式移除类名
           break
       }
     }
@@ -119,7 +115,7 @@ export default {
       this.clearCSS(e.code, e.shiftKey)
     }
   },
-  beforeDestroy () {
+  beforeDestroy () { // 注销事件
     document.onkeydown = null
     document.onkeyup = null
   }
@@ -131,7 +127,7 @@ export default {
 @import './stylus/bkey'
 .piano-plate
  flex 1
- font-family zpix
+//  font-family zpix //无法解决字体载入问题，暂时注释掉
  .piano-main
   display flex
   flex-flow row wrap
@@ -139,14 +135,14 @@ export default {
   align-content flex-start
   width 95%
   margin 0 auto
-  height 500px
+  height 540px
   border-radius 20px
   user-select none
   // background-color pink
   .piano-flap
    width 100%
    height 40px
-   margin-top 50px
+   margin-top 100px
    line-height: 40px
    text-align center
    color #fff
@@ -172,6 +168,7 @@ export default {
     box-shadow 0 2px 2px rgb(0 0 0 / 40%),inset 2px 0px 2px -1px rgb(0 0 0 / 40%),inset -2px 0px 2px -1px rgb(0 0 0 / 40%)
    .keytip
      .keyname
+      font-weight bold
       margin-bottom 10px
       &.fade-enter-active,&.fade-leave-active
        transition opacity 2s
@@ -201,6 +198,7 @@ export default {
      .keyname
       margin-bottom 5px
       font-size 10px
+      font-weight bold
       color #fff
       text-align center
       &.fade-enter-active,&.fade-leave-active

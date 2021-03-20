@@ -41,6 +41,7 @@ export default {
         } else {
           this.randomIndex = 0
         }
+        // this.randomIndex = Math.floor(Math.random() * Lyrics.length)  //随机歌词略微消耗性能
         this.randomLyric = `"${Lyrics[this.randomIndex]}"`
         $('#randomLyric').fadeIn(1000)
       }
@@ -61,6 +62,7 @@ export default {
 
 <style lang="stylus" scoped>
 .component-random-lyric
+  font-weight bold
   font-size 30px
   margin-top 80px
   height 50px

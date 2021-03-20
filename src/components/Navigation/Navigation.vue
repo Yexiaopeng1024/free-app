@@ -1,7 +1,7 @@
 <template>
  <div class="navigation">
         <button type="button" class="nes-btn" @click="goTo('/Piano')">Piano</button>
-        <button type="button" class="nes-btn is-orange">Button</button>
+        <button type="button" class="nes-btn is-orange" @click="goTo('/HappyChat')">沙雕</button>
         <button type="button" class="nes-btn is-pink">Button</button>
         <button type="button" class="nes-btn is-primary">Primary</button>
         <button type="button" class="nes-btn is-success">Success</button>
@@ -31,6 +31,7 @@ export default {
    height 650px
    border-radius 15px 0 0 15px
   .nes-btn
+   width 90px
    margin 20px
   .is-pink
    background-color pink
