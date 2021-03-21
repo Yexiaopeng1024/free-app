@@ -3,9 +3,10 @@ import App from './App'
 import router from './router'
 import store from './store'
 import {Switch} from 'element-ui'
+import './filter/index'
 import 'jquery'
 
-import '@/common/font/font.css'
+// import '@/common/font/font.css'
 
 Vue.use(Switch)
 /* eslint-disable no-new */new Vue({
