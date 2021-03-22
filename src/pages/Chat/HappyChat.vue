@@ -2,7 +2,7 @@
   <div class="chat-plate">
     <div class="chat-main">
         <ul class="content" id="content">
-            <li  v-for="(chatRec,index) in chatRecs" :key="index" :class="chatRec.li">
+            <li v-for="(chatRec,index) in chatRecs" :key="index" :class="chatRec.li">
             <i class="nes-bcrikko"></i>
             <div class="nes-balloon" :class="chatRec.div">
             <p v-html="_no_space(chatRec.msg)"></p>
@@ -12,7 +12,7 @@
      </div>
     <div class="chat-input">
         <div class="nes-field is-inline">
-        <input type="text" id="inline_field" class="nes-input is-dark" placeholder="说点什么吧.." v-model="msg" @keyup.enter="sendMsg">
+        <input type="text" autocomplete="off" id="inline_field" class="nes-input is-dark" placeholder="说点什么吧.." v-model="msg" @keyup.enter="sendMsg">
         </div>
         <button type="button" class="nes-btn is-error" @click="sendMsg">发送</button>
     </div>
@@ -23,6 +23,8 @@
 // import Vue from 'vue'
 import BScroll from '@better-scroll/core'
 import MouseWheel from '@better-scroll/mouse-wheel'
+import {sayHi} from './config/sayHi'
+import {keywords} from './config/hexie'
 import {Message} from 'element-ui'
 import {mapState} from 'vuex'
 BScroll.use(MouseWheel)
@@ -30,7 +32,7 @@ export default {
   data () {
     return {
       msg: '',
-      chatRecs: [{msg: '你好啊', li: 'msg-left', div: 'from-left'}]
+      chatRecs: []
     }
   },
   components: {
@@ -71,7 +73,7 @@ export default {
     },
     recMsg (value) {
       switch (value.result) { // 对返回的数据进行处理后推送到聊天界面
-        case 0:
+        case 0: // 对解析成功的回复消息进行处理
           let newliSuc = {}
           newliSuc.msg = value.content
           newliSuc.li = 'msg-left'
@@ -82,7 +84,7 @@ export default {
             this.scroll.scrollTo(0, this.scroll.maxScrollY, 500)
           })
           break
-        default:
+        default: // 对解析失败的回复消息进行处理
           let newli = {}
           newli.msg = '对不起，我听不懂'
           newli.li = 'msg-left'
@@ -96,14 +98,13 @@ export default {
       }
     },
     testMsg (msg) {
-      const keywords = ['傻逼', '笨蛋', /sb/gi] // 和谐社会拒绝脏话，过滤词添加
       let filtMsg = msg
-      for (let i = 0; i < keywords.length; i++) {
+      for (let i = 0; i < keywords.length; i++) { // 和谐词测试
         filtMsg = filtMsg.replace(keywords[i], (text) => {
           const textlen = text.length
           let newtext = ''
           for (let i = 0; i < textlen; i++) {
-            newtext += 'X'
+            newtext += '*'
           }
           return newtext
         })
@@ -125,6 +126,10 @@ export default {
       }
     })
     this.scroll = scroll
+    const initMsg = sayHi[Math.floor(Math.random() * sayHi.length)] // 初始化 随机第一条问候消息
+    setTimeout(() => {
+      this.chatRecs.push({msg: initMsg, li: 'msg-left', div: 'from-left'})
+    }, 1000)
   }
 }
 </script>
@@ -162,8 +167,13 @@ export default {
      bottom 0px
     //  margin-top 20px
     .nes-balloon
+     font-weight bold
      max-width 600px
      margin-left 180px
+     &.fade-enter-active,&.fade-leave-active
+      transition opacity 2s
+     &.fade-enter,&.fade-leave-to
+      opacity 0
    .msg-right
     margin-bottom 20px
     position relative
@@ -174,8 +184,13 @@ export default {
      right 50px
      //  margin-top 20px
     .nes-balloon
+     font-weight bold
      width 200px
      margin-left 792px
+     &.fade-enter-active,&.fade-leave-active
+      transition opacity 2s
+     &.fade-enter,&.fade-leave-to
+      opacity 0
  .chat-input
   position absolute
   bottom 0px

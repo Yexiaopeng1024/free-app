@@ -2,10 +2,10 @@
  <div class="navigation">
         <button type="button" class="nes-btn" @click="goTo('/Piano')">Piano</button>
         <button type="button" class="nes-btn is-orange" @click="goTo('/HappyChat')">沙雕</button>
-        <button type="button" class="nes-btn is-pink">Button</button>
-        <button type="button" class="nes-btn is-primary">Primary</button>
-        <button type="button" class="nes-btn is-success">Success</button>
-        <button type="button" class="nes-btn is-warning">Warning</button>
+        <button type="button" class="nes-btn is-success" @click="goTo('/Game')">Game</button>
+        <button type="button" class="nes-btn is-primary"  @click="goTo('/SadMusic')">网抑云</button>
+        <button type="button" class="nes-btn is-warning">待定</button>
+        <button type="button" class="nes-btn is-pink">待定</button>
 </div>
 </template>
 
@@ -23,6 +23,7 @@ export default {
 
 <style lang="stylus" scoped>
 .navigation
+   position relative
    display flex
    flex-direction column
    justify-content center
@@ -31,6 +32,9 @@ export default {
    height 650px
    border-radius 15px 0 0 15px
   .nes-btn
+   position relative
+   z-index 200
+   font-weight bold
    width 90px
    margin 20px
   .is-pink

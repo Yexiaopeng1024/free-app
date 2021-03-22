@@ -126,6 +126,9 @@ export default {
 // 黑键的排列方式
 @import './stylus/bkey'
 .piano-plate
+ border-radius 20px
+ box-shadow 0px 0px 10px 2px #000 inset
+ background-color #777
  flex 1
 //  font-family zpix //无法解决字体载入问题，暂时注释掉
  .piano-main

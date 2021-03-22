@@ -7,7 +7,7 @@
     </div>
     <i class="nes-mario"></i>
   </div>
-  <i class="nes-octocat animate"></i>
+  <a href="https://github.com/Yexiaopeng1024/free-app" target="_blank"><i class="nes-octocat animate"></i></a>
 </div>
 </template>
 
@@ -27,6 +27,7 @@ export default {
  right 0
  bottom 0
  left 0
+ background-color #ddd
  .baseplate
   display flex
   align-items center
@@ -52,7 +53,7 @@ export default {
    border 5px solid #000
    border-radius 25px
    box-shadow 0px 0px 10px 2px #000 inset
-   background-color #777
+   background-color #333
   .nes-mario
    position relative
    top -266px
