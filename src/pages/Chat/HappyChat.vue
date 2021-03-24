@@ -1,4 +1,5 @@
 <template>
+  <transition name = "fade">
   <div class="chat-plate">
     <div class="chat-main">
         <ul class="content" id="content">
@@ -17,6 +18,7 @@
         <button type="button" class="nes-btn is-error" @click="sendMsg">发送</button>
     </div>
   </div>
+  </transition>
 </template>
 
 <script>

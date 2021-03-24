@@ -1,13 +1,24 @@
 <template>
   <div class="music-main">
-      <div class="search"></div>
-      <div class="control"></div>
+    <Search></Search>
+    <Select></Select>
+    <Content></Content>
+    <Control></Control>
   </div>
 </template>
 
 <script>
+import Search from './components/Search'
+import Select from './components/Select'
+import Content from './components/Content'
+import Control from './components/Control'
 export default {
-
+  components: {
+    Search,
+    Select,
+    Content,
+    Control
+  }
 }
 </script>
 
@@ -17,17 +28,5 @@ export default {
  flex-wrap wrap
  align-content space-between
  width 61.8%
- height 540px
- .search
-  width 100%
-  height 16%
-  border-bottom 1px solid #777
-  border-radius 18px 0 0 0
-  background-color rgb(16, 141, 224)
- .control
-  width 100%
-  height 15%
-  border-top 1px solid #777
-  border-radius 0 0 0 18px
-  background-color #aaa
+ height 541px
 </style>

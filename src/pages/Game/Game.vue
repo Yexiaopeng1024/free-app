@@ -27,13 +27,13 @@ export default {
   justify-content center
   align-items center
   width 61.8%
-  height 540px
+  height 541px
   border-radius 20px 0 0 20px
   background-color rgb(146, 204, 64)
  .game-list
   box-sizing border-box
   width 38.2%
-  height 540px
+  height 541px
   border-left 5px solid #000
   border-radius 0 20px 20px 0
   background-color #fff
